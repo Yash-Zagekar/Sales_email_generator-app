@@ -47,7 +47,9 @@ class Portfolio:
 # Chain management class for LLM interactions
 class Chain:
     def __init__(self):
-        self.llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key="AIzaSyC2dXe_sPE3QfEdkFQrlp3s-S2dduAGRTA")
+        google_api_key = st.secrets["google"]["api_key"]
+        self.llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=google_api_key)
+ 
 
     def extract_jobs(self, cleaned_text):
         prompt_extract = PromptTemplate.from_template(
