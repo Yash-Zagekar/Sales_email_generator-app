@@ -6,3 +6,4 @@ pandas
 faiss-cpu
 scikit-learn
 numpy
+beautifulsoup4
