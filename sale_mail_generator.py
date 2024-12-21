@@ -12,8 +12,6 @@ import re
 from bs4 import BeautifulSoup
 
 
-
-
 def clean_text(text):
     text = re.sub(r'<[^>]*?>', '', text)  # Remove HTML tags
     text = re.sub(r'http[s]?://\S+', '', text)  # Remove URLs
@@ -52,7 +50,6 @@ class Chain:
     def __init__(self):
         google_api_key = st.secrets["google"]["api_key"]
         self.llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=google_api_key)
- 
 
     def extract_jobs(self, cleaned_text):
         prompt_extract = PromptTemplate.from_template(
@@ -71,15 +68,14 @@ class Chain:
         json_parser = JsonOutputParser()
         return json_parser.parse(res.content)
 
-
     def write_mail(self, job, links):
-       prompt_email = PromptTemplate.from_template(
+        prompt_email = PromptTemplate.from_template(
             """
-            ### NO PREABMLES AT ALL
+            ### NO PREAMBLE AT ALL
             ### JOB DESCRIPTION:
             {job_description}
             ### INSTRUCTION:
-            include subject of cold email
+            Include subject of cold email.
             You are BDE at ABC Kaisha, an AI & Software Consulting company dedicated to facilitating
             the seamless integration of business processes through automated tools. 
             Your job is to write a cold email to the client regarding the job mentioned above describing the capability of ABC Kaisha
@@ -98,10 +94,7 @@ def set_custom_css():
     st.markdown(
         """
         <style>
-        /* Import Poppins font */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
-        /* Apply Poppins font to all elements */
         html, body, div, span, applet, object, iframe,
         h1, h2, h3, h4, h5, h6, p, blockquote, pre,
         a, abbr, acronym, address, big, cite, code,
@@ -116,13 +109,9 @@ def set_custom_css():
         mark, audio, video, textarea {
             font-family: 'Poppins', sans-serif;
         }
-
-        /* Customize the text areas */
         textarea {
             font-size: 16px;
         }
-
-        /* Customize the color and appearance of markdown headings */
         h1, h2, h3, h4, h5, h6 {
             font-weight: 600;
         }
@@ -130,9 +119,6 @@ def set_custom_css():
         """,
         unsafe_allow_html=True
     )
-
-
-
 
 
 def display_links():
@@ -151,11 +137,11 @@ def display_links():
 
 
 def create_streamlit_app(chain, portfolio):
-    st.set_page_config(layout="wide", page_title="Cold mail Generator", page_icon="📧")
+    st.set_page_config(layout="wide", page_title="Cold Mail Generator", page_icon="📧")
     set_custom_css()
     st.markdown("<h1 style='color: #FFFFFF;'> 🌟SALES MAIL GENERATOR</h1>", unsafe_allow_html=True)
     st.write("""
-    Sales mail generator is AI tool to generate professional sales mails.
+    Sales mail generator is an AI tool to generate professional sales mails.
      
     ➡️ Follow these steps to generate a cold email:
     1. Paste the job description webpage link.
