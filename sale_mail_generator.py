@@ -72,6 +72,7 @@ class Chain:
         prompt_email = PromptTemplate.from_template(
             """
             ### NO PREAMBLE AT ALL
+            ### only for 1st job posting 
             ### JOB DESCRIPTION:
             {job_description}
             ### INSTRUCTION:
