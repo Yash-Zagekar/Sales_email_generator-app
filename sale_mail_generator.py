@@ -73,17 +73,17 @@ class Chain:
 
 
     def write_mail(self, job, links):
-        prompt_email = PromptTemplate.from_template(
+       prompt_email = PromptTemplate.from_template(
             """
             ### JOB DESCRIPTION:
             {job_description}
             ### INSTRUCTION:
-            You are BDE at FAST OFFER, FAST OFFER is an AI & Software Consulting company dedicated to facilitating
+            You are BDE at ABC Kaisha, an AI & Software Consulting company dedicated to facilitating
             the seamless integration of business processes through automated tools. 
-            Your job is to write a cold email to the client regarding the job mentioned above describing the capability of FAST OFFER 
+            Your job is to write a cold email to the client regarding the job mentioned above describing the capability of ABC Kaisha
             in fulfilling their needs.
-            Also add the most relevant ones from the following links to showcase FAST OFFER's portfolio: {link_list}
-            ### EMAIL (NO PREAMBLE):
+            Include relevant links from: {link_list}
+            Return email and subject content only.
             """
         )
         chain_email = prompt_email | self.llm
