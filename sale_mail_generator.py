@@ -9,6 +9,9 @@ import faiss
 from sklearn.feature_extraction.text import TfidfVectorizer
 import numpy as np
 import re
+from bs4 import BeautifulSoup
+
+
 
 
 def clean_text(text):
