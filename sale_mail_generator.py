@@ -75,14 +75,16 @@ class Chain:
     def write_mail(self, job, links):
        prompt_email = PromptTemplate.from_template(
             """
+            ### NO PREABMLES AT ALL
             ### JOB DESCRIPTION:
             {job_description}
             ### INSTRUCTION:
+            include subject of cold email
             You are BDE at ABC Kaisha, an AI & Software Consulting company dedicated to facilitating
             the seamless integration of business processes through automated tools. 
             Your job is to write a cold email to the client regarding the job mentioned above describing the capability of ABC Kaisha
             in fulfilling their needs.
-            Include relevant links from: {link_list}
+            Include direct links from this "Directly links": {link_list}
             Return email and subject content only.
             """
         )
