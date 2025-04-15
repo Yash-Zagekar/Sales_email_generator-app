@@ -49,7 +49,7 @@ class Portfolio:
 class Chain:
     def __init__(self):
         google_api_key = st.secrets["google"]["api_key"]
-        self.llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=google_api_key)
+        self.llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key=google_api_key)
 
     def extract_jobs(self, cleaned_text):
         prompt_extract = PromptTemplate.from_template(
