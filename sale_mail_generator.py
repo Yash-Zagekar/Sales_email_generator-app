@@ -49,7 +49,7 @@ class Portfolio:
 class Chain:
     def __init__(self):
         self.llm = ChatGoogleGenerativeAI(
-        model="models/gemini-pro",  
+        model="models/gemini-1.5-flash",  
         google_api_key="AIzaSyDJYhML3m88RaFjhNbDhphdYEpyDk7cIyo"
 )
 
